@@ -35,6 +35,10 @@ module.exports = {
       },
       items: [
         {
+          to: '/docs/style',
+          label: 'Style',
+        },
+        {
           to: '/careers/intro',
           label: 'Careers',
           position: 'left',
