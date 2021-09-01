@@ -7,6 +7,7 @@ module.exports = {
   tagline: 'Rapid development without the burn or churn',
   url: 'https://ventureharbour.tech',
   baseUrl: '/',
+  trailingSlash: true,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
