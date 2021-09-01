@@ -29,6 +29,6 @@ This framework is broken down into two components:
 
 Success in any role at Venture Harbour is determined largely on impact. Your key aim as an engineer should be on delivering as much impact as possible in your daily work. Since impact can be a bit vague, read What is Impact?
 
-Next, ground yourself in the expectations of your role. For each role, you'll find a one line summary as well as the role's scope, reach and levers for impact.
+Next, ground yourself in the expectations of your role. For each role, you'll find a one line summary as well as the role's scope, reach and levers for impact. This will give you a solid understanding of your remit, the companies expectations and what is in your control to push you forward.
 
 Review the expected behaviours for that role, behaviours are related to responsibilites, and responsibilities are under a specific facet of all roles.

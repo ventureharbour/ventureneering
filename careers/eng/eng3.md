@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# ENG3 Software Engineer
+# ENG3 Engineer
 
 > I autonomously deliver ongoing business impact across a team, venture, or technical system
 
