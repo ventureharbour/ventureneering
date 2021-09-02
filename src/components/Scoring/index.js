@@ -145,8 +145,8 @@ export default function Scoring({content}) {
               <h4>Your Scores</h4>
               <table style={{width: '100%'}}>
                 <thead>
-                  <th>Responsibility</th>
-                  <th style={{width: '100%'}}>Score</th>
+                  <th><b>Responsibility</b></th>
+                  <th style={{width: '100%'}}><b>Score</b></th>
                 </thead>
                 <tbody>
                   {finalScores.map((score) => {
@@ -213,7 +213,7 @@ export default function Scoring({content}) {
             <th style={{textAlign: 'left', width: '100%', 'position': 'relative'}}>
               Behaviours
               <div style={{right: '10px', top: '0px', bottom: '0px', 'position': 'absolute', display: 'flex', alignItems: 'center'}}>
-                <div onClick={start} className={'button button--primary'}>Check</div>
+                <div onClick={start} className={'button button--primary'}>Evaluate</div>
               </div>
             </th>
           </tr>
