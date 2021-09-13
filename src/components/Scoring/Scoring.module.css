@@ -59,7 +59,8 @@
 }
 
 .option {
-  padding: 10px;
+  padding: 20px 15px;
+  margin: 20px 0px;
   border: 1px solid var(--ifm-toc-border-color);
   border-radius: var(--ifm-button-border-radius);
   margin-bottom: 10px;
