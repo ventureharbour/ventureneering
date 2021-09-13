@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ventureharbour.tech/blog</id>
-    <title>Ventureneering Blog</title>
+    <title>Venture(neering) Blog</title>
     <updated>2019-05-30T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ventureharbour.tech/blog"/>
-    <subtitle>Ventureneering Blog</subtitle>
+    <subtitle>Venture(neering) Blog</subtitle>
     <icon>https://ventureharbour.tech/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
