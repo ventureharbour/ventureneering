@@ -230,5 +230,46 @@ Scoring is done across the five core areas
       '2': `I take the lead to ensure everyone understands, and I probe people who are explaining to get to the root of their issues`
     }
   },
-  'Craft': {}
+  'Craft': {
+    'Readability': {
+      '-1': 'I have had some comments in my reviews to change up variable names',
+      '0': 'I am unaware of any problems with readability of my code',
+      '1': 'I make an effort to intelligibly name variables, knowing others need to understand my work',
+      '2': 'I write highly readable code, with documentation added in to boot'
+    },
+    'Bugs': {
+      '-2': 'Some bugs in mainline paths',
+      '0': 'Bugs are in edge cases not mainline paths',
+      '1': 'I work actively to weed out bugs in edge cases as well as the mainline paths in my tasks',
+    },
+    'Scope': {
+      '-2': 'I mostly stay in my area of understanding',
+      '-1': `There is quite a lot of the code that I don't understand`,
+      '0': 'I have made efforts to read as much of the codebase as possible so I am familiar with it',
+      '1': 'I regularly go through other areas of the code, either through code review or just as part of my own PD to understand it in more detail'
+    },
+    'Debt': {
+      '-2': 'Not actively aware of technical debt',
+      '0': 'Aware of technical debt',
+      '1': 'Actively contributes to reducing tech debt',
+      '2': 'I am working on strategies to remove as much technical debt as possible'
+    },
+    'Process': {
+      '-2': 'I regularly have pipeline failures',
+      '-1': `Follows coding guidelines`,
+      '0': 'Follows and contributes to coding guidelines',
+      '1': 'I own a large portion of the coding guidelines'
+    },
+    'Knowledge': {
+      '-2': 'Will code mostly on the same areas',
+      '0': `Works on code/modules they didn't write`,
+      '2': 'Just as effective on unknown code as own code'
+    },
+    'Design': {
+      '-2': 'I tend to write code directly in a solution to a problem',
+      '-1': 'I have notes on what I think I am trying to do to solve a problem',
+      '0': 'I document everything I have assumed prior to writing code',
+      '2': 'I document my solution ahead of writing code, including architectural diagrams - and have these peer reviewed'
+    }
+  }
 }} />
