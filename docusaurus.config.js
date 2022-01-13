@@ -1,102 +1,98 @@
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-
-/** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'Venture(neering)',
-  tagline: 'Rapid development without the burn or churn',
-  url: 'https://ventureharbour.tech',
-  baseUrl: '/',
-  trailingSlash: true,
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
-  organizationName: 'ventureharbour', // Usually your GitHub org/user name.
-  projectName: 'ventureneering', // Usually your repo name.
-  plugins: [
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'careers',
-        path: 'careers',
-        routeBasePath: 'careers',
-        editCurrentVersion: true,
-        showLastUpdateAuthor: true,
-        showLastUpdateTime: true,
-        sidebarPath: require.resolve('./sidebarsCareers.js'),
-      },
-    ],
+  title: "Venture Harbour Engineering",
+  tagline: "Rapid development without the burn or churn",
+  url: "https://ventureharbour.tech",
+  baseUrl: "/",
+  favicon: "favicon.ico",
+  organizationName: "ventureharbour", // Usually your GitHub org/user name.
+  projectName: "ventureneering", // Usually your repo name.
+  scripts: [
+    {
+      src: "https://buttons.github.io/buttons.js",
+      async: true,
+      defer: true,
+    },
   ],
   themeConfig: {
+    disableDarkMode: true,
     navbar: {
-      title: 'Ventureneering',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: "VentureHarbour Engineering",
+        src: "img/logo.svg",
       },
-      items: [
+      links: [
+        // {
+        //   to: "/about",
+        //   label: "Our Team",
+        //   position: "right",
+        //   activeBasePath: "about",
+        // },
         {
-          to: '/docs/style-guides/index',
-          label: 'Style',
-        },
-        {
-          to: '/careers/intro',
-          label: 'Careers',
-          position: 'left',
+          to: "/careers/intro",
+          label: "Career Framework",
+          position: "right",
           activeBaseRegex: `/careers/`,
         },
-        // {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
+          to: "/showcase",
+          activeBasePath: "showcase",
+          label: "Showcase",
+          position: "right",
         },
       ],
-    },
-    footer: {
-      style: 'dark',
-      links: [
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
     },
     prism: {
-      theme: lightCodeTheme,
-      darkTheme: darkCodeTheme,
+      theme: require("prism-react-renderer/themes/dracula"),
+      additionalLanguages: ["php"],
+    },
+    algolia: {
+      apiKey: "7251e88091c8043963e1b5f720784455",
+      indexName: "dev_ventureneering",
     },
   },
   presets: [
     [
-      '@docusaurus/preset-classic',
+      "@docusaurus/preset-classic",
       {
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
-        },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/scss/application.scss"),
         },
       },
     ],
   ],
+  plugins: [
+    "docusaurus-plugin-sass",
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "careers",
+        path: "careers",
+        routeBasePath: "careers",
+        editCurrentVersion: true,
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        sidebarPath: require.resolve("./sidebars.js"),
+      },
+    ],
+    [
+      "@docusaurus/plugin-sitemap",
+      {
+        cacheTime: 600 * 1000, // 600 sec - cache purge period
+        changefreq: "weekly",
+        priority: 0.5,
+        trailingSlash: false,
+      },
+    ],
+  ],
+  customFields: {
+    keywords: [
+      "wordpress tools",
+      "development tools",
+      "wordpress project",
+      "Gutenberg blocks",
+      "development kit",
+      "wordpress kit",
+    ],
+    image: "img-why-boilerplate@2x.png",
+  },
 };
