@@ -33,6 +33,13 @@ export default function ShowcaseGrid() {
         "TrueNorth is the Growth Marketing Platform to focus, align, and track marketing in one place, with everything and everyone working towards your goal.",
       link: "https://truenorth.io/",
     },
+    {
+      image: useBaseUrl("img/showcase/serene.png"),
+      label: "Serene",
+      desc:
+        "Serene is a macOS app that gives you productivity superpowers by layering three proven techniques to boost focus.",
+      link: "https://sereneapp.com/",
+    },
   ]);
 
   const items = itemsData.map((item, index) => {
