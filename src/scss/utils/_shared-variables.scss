@@ -6,15 +6,15 @@ All variables are available here:
 https://github.com/infinum/eightshift-frontend-libs/blob/develop/styles/scss/_core.scss
 */
 
-$base-font-family: 'IBM Plex Sans', sans-serif;
+$base-font-family: "IBM Plex Sans", sans-serif;
 
-$base-font-family-alternative: 'MarkPro', monospace;
+$base-font-family-alternative: "MarkPro", monospace;
 
-$base-block-family-code: 'IBM Plex Mono', monospace;
+$base-block-family-code: "IBM Plex Mono", monospace;
 
 $base-containers: (
   default: $base-container-size,
-  medium: 1094px,
+  medium: 1330px,
   small: 867px,
   smaller: 640px,
 );
