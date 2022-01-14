@@ -89,15 +89,6 @@ export default function ShowcaseGrid() {
         />
         <div className={`${component}__content`}>{items}</div>
       </Container>
-      <Container componentClass={component} size={"smaller"}>
-        <Heading
-          componentClass={component}
-          title={"Want to showcase your project?"}
-          subtitle={
-            'If you want to show case your project on this list please open an issue on on the <a target="_blank" rel="noopener noreferrer" rel="nofollow" href="https://github.com/infinum/eightshift-docs/issues">Eightshift-Docs github</a>'
-          }
-        />
-      </Container>
     </div>
   );
 }
