@@ -33,6 +33,13 @@ export default function ShowcaseGrid() {
         "TrueNorth is the Growth Marketing Platform to focus, align, and track marketing in one place, with everything and everyone working towards your goal.",
       link: "https://truenorth.io/",
     },
+    {
+      image: useBaseUrl("img/showcase/serene.png"),
+      label: "Serene",
+      desc:
+        "Serene is a macOS app that gives you productivity superpowers by layering three proven techniques to boost focus.",
+      link: "https://sereneapp.com/",
+    },
   ]);
 
   const items = itemsData.map((item, index) => {
@@ -81,15 +88,6 @@ export default function ShowcaseGrid() {
           }
         />
         <div className={`${component}__content`}>{items}</div>
-      </Container>
-      <Container componentClass={component} size={"smaller"}>
-        <Heading
-          componentClass={component}
-          title={"Want to showcase your project?"}
-          subtitle={
-            'If you want to show case your project on this list please open an issue on on the <a target="_blank" rel="noopener noreferrer" rel="nofollow" href="https://github.com/infinum/eightshift-docs/issues">Eightshift-Docs github</a>'
-          }
-        />
       </Container>
     </div>
   );
