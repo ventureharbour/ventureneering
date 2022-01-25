@@ -3,7 +3,12 @@ $navbar: (
     mobile: (
       box-shadow: none,
       height: var(--ifm-navbar-height),
-      background-color: $base-white-color,
+      background-image:
+        linear-gradient(
+          $base-white-color 0%,
+          $base-white-color 60%,
+          transparent 100%
+        ),
       padding: 0,
     ),
   ),
@@ -100,6 +105,7 @@ $navbar: (
 #__docusaurus .navbar {
   $this: &;
   @include responsive($navbar, nav);
+  background-color: transparent;
 
   &__inner {
     @include responsive($navbar, inner);

@@ -7,7 +7,7 @@
   right: 0px;
   bottom: 0px;
   z-index: 2000;
-  background-color: var(--ifm-background-color);
+  background-color: var(--ifm-hero-background-color);
   display: flex;
   justify-content: center;
 }
@@ -20,7 +20,8 @@
   flex-direction: column;
 }
 
-.header, .footer {
+.header,
+.footer {
   padding: 10px;
   display: flex;
   align-items: center;
@@ -43,7 +44,8 @@
   overflow-y: auto;
 }
 
-.header > h2, .header > h2 > h4 {
+.header > h2,
+.header > h2 > h4 {
   margin: 0px;
 }
 
@@ -61,7 +63,7 @@
 .option {
   padding: 20px 15px;
   margin: 20px 0px;
-  border: 1px solid var(--ifm-toc-border-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: var(--ifm-button-border-radius);
   margin-bottom: 10px;
 
