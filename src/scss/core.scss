@@ -23,3 +23,20 @@ body {
   position: relative;
   overflow-x: hidden;
 }
+
+@media print {
+  body {
+    padding-top: 3em;
+  }
+
+  article {
+    padding-bottom: 3em;
+  }
+
+  article ~ *,
+  .navbar,
+  .menu__list,
+  div[class^="tableOfContents_"] {
+    display: none;
+  }
+}
