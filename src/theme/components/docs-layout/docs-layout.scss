@@ -14,13 +14,12 @@ $layout: (
     display: flex;
     flex-direction: column;
 
-    margin-top: calc(var(--ifm-navbar-height) * -1);
-
     div[class^="docPage_"] {
       flex-wrap: wrap;
       max-width: map-get-strict($layout, main-wrapper);
       padding: 0 map-get-strict($layout, main-wrapper-gutter);
       margin: 0 auto;
+      margin-top: calc(var(--ifm-navbar-height) * -1);
       padding-top: var(--ifm-navbar-height);
     }
 

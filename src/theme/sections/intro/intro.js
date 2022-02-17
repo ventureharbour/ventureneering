@@ -15,7 +15,13 @@ export default function Intro() {
         <div
           className={`${component}__title`}
           dangerouslySetInnerHTML={{
-            __html: "We ❤️<br />to build",
+            __html: "We ❤️ <br /> to build",
+          }}
+        ></div>
+        <div
+          className={`${component}__title-mobile`}
+          dangerouslySetInnerHTML={{
+            __html: "We ❤️ to build",
           }}
         ></div>
         <div className={`${component}__image`}>

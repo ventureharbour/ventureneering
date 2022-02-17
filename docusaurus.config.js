@@ -28,6 +28,12 @@ module.exports = {
         //   activeBasePath: "about",
         // },
         {
+          to: "/blog",
+          label: "Blog",
+          position: "right",
+          activeBasePath: "blog",
+        },
+        {
           to: "/careers/intro",
           label: "Career Framework",
           position: "right",
@@ -56,6 +62,10 @@ module.exports = {
       {
         theme: {
           customCss: require.resolve("./src/scss/application.scss"),
+        },
+        blog: {
+          path: "blog",
+          authorsMapPath: "./blog/authors.yml",
         },
       },
     ],

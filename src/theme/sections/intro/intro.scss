@@ -3,12 +3,12 @@ $intro: (
     mobile: (
       padding-top: 70px,
       padding-bottom: 80px,
-    ),
-    tablet: (
-      padding-top: 160px,
+      display: flex,
+      width: 100%,
+      align-items: center,
     ),
   ),
-  title: (
+  title-mobile: (
     mobile: (
       font-size: 50px,
       line-height: 1.13,
@@ -20,12 +20,30 @@ $intro: (
       position: relative,
     ),
     tablet: (
+      display: none,
+    ),
+    desktop: (
+      display: none,
+    ),
+  ),
+  title: (
+    mobile: (
+      display: none,
+      color: $base-elephant-color,
+      font-weight: bold,
+      letter-spacing: -1px,
+      font-family: $base-font-family-alternative,
+      z-index: 1,
+    ),
+    tablet: (
+      display: block,
       font-size: 100px,
       line-height: 0.98,
       margin-bottom: 40px,
     ),
     desktop: (
       font-size: 132px,
+      display: block,
     ),
   ),
   content: (
@@ -37,6 +55,7 @@ $intro: (
       padding-left: 75px,
       position: relative,
       max-width: 550px,
+      flex: 1,
     ),
     tablet: (
       margin-bottom: 50px,
@@ -126,6 +145,10 @@ $intro: (
 
   &__title {
     @include responsive($intro, title);
+  }
+
+  &__title-mobile {
+    @include responsive($intro, title-mobile);
   }
 
   &__content {
