@@ -11,13 +11,19 @@ $features: (
     mobile: (
       display: flex,
       flex-wrap: wrap,
-      margin: 0 (-$base-gutter-size / 2) -30px,
+      margin: 0
+        (
+          -$base-gutter-size / 2,
+        ) -30px,
     ),
   ),
   item: (
     mobile: (
       text-align: left,
-      padding: 0 ($base-gutter-size/2),
+      padding: 0
+        (
+          $base-gutter-size/2,
+        ),
       margin-bottom: 30px,
       flex: 0 0 calc-grid-width(12),
     ),
@@ -38,7 +44,7 @@ $features: (
     ),
     tablet: (
       max-width: 410px,
-    )
+    ),
   ),
   desc: (
     mobile: (
@@ -51,7 +57,7 @@ $features: (
     ),
     tablet: (
       max-width: 410px,
-    )
+    ),
   ),
 );
 
@@ -69,7 +75,7 @@ $features: (
     &:hover {
       #{$this}__title::before {
         transform: rotate(45deg);
-        transition: all 0.3s ease-in,
+        transition: all 0.3s ease-in;
       }
     }
   }
@@ -78,33 +84,13 @@ $features: (
     @include responsive($features, title);
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: 7px;
       width: 16px;
       height: 16px;
-      transition: all 0.3s ease-in,
-    }
-
-    &--red::before {
-      background-image: url('/eightshift-docs/img/ic-bullet-1.svg');
-    }
-
-    &--purple::before {
-      background-image: url('/eightshift-docs/img/ic-bullet-2.svg');
-    }
-
-    &--blue::before {
-      background-image: url('/eightshift-docs/img/ic-bullet-3.svg');
-    }
-
-    &--yellow::before {
-      background-image: url('/eightshift-docs/img/ic-bullet-4.svg');
-    }
-
-    &--green::before {
-      background-image: url('/eightshift-docs/img/ic-bullet-5.svg');
+      transition: all 0.3s ease-in;
     }
   }
 

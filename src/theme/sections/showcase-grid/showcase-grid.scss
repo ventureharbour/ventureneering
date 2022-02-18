@@ -116,26 +116,6 @@ $showcase-grid: (
       height: 16px;
       transition: all 0.3s ease-in;
     }
-
-    &--red::before {
-      background-image: url("/eightshift-docs/img/ic-bullet-1.svg");
-    }
-
-    &--purple::before {
-      background-image: url("/eightshift-docs/img/ic-bullet-2.svg");
-    }
-
-    &--blue::before {
-      background-image: url("/eightshift-docs/img/ic-bullet-3.svg");
-    }
-
-    &--yellow::before {
-      background-image: url("/eightshift-docs/img/ic-bullet-4.svg");
-    }
-
-    &--green::before {
-      background-image: url("/eightshift-docs/img/ic-bullet-5.svg");
-    }
   }
 
   &__desc {

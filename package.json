@@ -25,14 +25,16 @@
     "deploy": "docusaurus deploy"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.50",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.50",
+    "@docusaurus/core": "2.0.0-beta.15",
+    "@docusaurus/preset-classic": "2.0.0-beta.15",
     "@eightshift/frontend-libs": "^3.2.2",
-    "clsx": "1.1.1",
-    "docusaurus-plugin-sass": "^0.1.8",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-scripts": "^3.4.1"
+    "@mdx-js/react": "^1.6.21",
+    "clsx": "^1.1.1",
+    "docusaurus-plugin-sass": "^0.2.2",
+    "prism-react-renderer": "^1.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sass": "^1.49.8"
   },
   "browserslist": {
     "production": [

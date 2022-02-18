@@ -27,6 +27,12 @@ $navbar: (
       transition: all 0.3s ease-in,
     ),
   ),
+  link-active: (
+    normal: (
+      color: $base-venture-color,
+      text-decoration: underline,
+    ),
+  ),
   link-color: (
     normal: (
       color: $base-cape-color,
@@ -114,6 +120,9 @@ $navbar: (
   &__link {
     @include responsive($navbar, link);
     @include link($navbar, link-color);
+  }
+  &__link--active {
+    @include link($navbar, link-active);
   }
 
   &__brand {

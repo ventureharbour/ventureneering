@@ -17,21 +17,13 @@ function Foot() {
               rel="noopener noreferrer"
               className={`${component}__link`}
             >
-              {"VentureHarbour"}
+              {"Venture Harbour"}
             </a>
-            {" team | "}
-            <a
-              href={useBaseUrl("/sitemap.xml")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${component}__link`}
-            >
-              {"Sitemap"}
-            </a>
+            {" team"}
           </div>
           <div className={`${component}__column ${component}__column--right`}>
             <span className={`${component}__copy`}>
-              {"© VentureHarbour. All rights reserved"}
+              {"© Venture Harbour. All rights reserved"}
             </span>
           </div>
         </div>

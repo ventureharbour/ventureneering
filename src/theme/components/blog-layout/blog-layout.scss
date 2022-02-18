@@ -1,0 +1,55 @@
+// This file has multiple nestings because Docusaurus adds its custom selectors that he overrides in build phase and doesn't take into account your overrides.
+// Themes are not mend to be overriden whole but only partial.
+
+div[class^="authorCol_"] {
+  padding: 0px;
+  background: red;
+}
+
+#__docusaurus {
+  .blog-wrapper {
+    .container {
+      padding: 0 !important;
+      margin: 0;
+      max-width: initial;
+      .markdown {
+        margin-bottom: 30px;
+      }
+
+      footer.row {
+        .col {
+          padding: 0px;
+        }
+      }
+
+      .row {
+        margin: 0;
+        aside.col.col--3 {
+          padding-left: 30px;
+          padding-right: 10px;
+          border-right: none;
+        }
+        .col.col--7 {
+          padding: 0 40px;
+          @include media(desktop up) {
+            padding: 0 map-get-strict($layout, main-wrapper-gutter);
+          }
+        }
+        .col {
+          max-width: 100% !important;
+          padding: 0;
+
+          @include media(tablet down) {
+            @include flex-grid-width(12);
+          }
+
+          &.col--3 {
+            padding-right: 0;
+            padding-left: 0;
+            @include flex-grid-width(2);
+          }
+        }
+      }
+    }
+  }
+}
