@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ventureharbour.tech/blog</id>
     <title>Venture Harbour Engineering Blog</title>
-    <updated>2022-02-18T00:00:00.000Z</updated>
+    <updated>2022-02-28T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ventureharbour.tech/blog"/>
     <subtitle>Venture Harbour Engineering Blog</subtitle>
     <icon>https://ventureharbour.tech/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[🤼‍♀️ Wrestly]]></title>
+        <id>wrestly</id>
+        <link href="https://ventureharbour.tech/blog/wrestly"/>
+        <updated>2022-02-28T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Wrestling with rest? Try Wrestly!]]></summary>
+        <content type="html"><![CDATA[<p><strong>This week we have been working with remote APIs, Webhooks and OAuth</strong>. Those alone will be blogged about plenty in the future, but in doing this task we have bourne another mini project that we have found really useful. Typically, when doing this sort of work, I've always had this habit of running a dummy server that logs out requests and blindly responds to them. This helps me see what is going on, and what external things are either redirecting or posting directly to our APIs. Up to now I have never really done much more than run a server where all requests are <code>console.log</code>'ed and <code>res.send('ok')</code>'ed, but this time around added an SQLite backed so I could see request history, and a nice front end so the payloads were readable. <a href="https://npmjs.com/wrestly" target="_blank" rel="noopener noreferrer">So here is <em>wrestly</em></a></p><div style="text-align:center"><p><img alt="Our Glorious Mascot" src="/assets/images/logo-6eab9b24879d187ebbedae9eb001c4f4.svg" width="87" height="80"></p></div><p><strong>Wrestly</strong> is a simple http server that will accept any requests and store their <code>body</code>, <code>headers</code> and <code>cookies</code> as well as any <code>query</code> params into a SQLite DB. It allows you to list the requests already made, and look at each one in detail. We don't really focus on the response, it just gives you a nice <code>200</code> and whatever the contents of the original request was. Routes that go via <code>/api/**/*</code> paths will always respond with JSON - which was useful for us - otherwise it just shows Wrestly's own webpage with the contents of the original request. It'll parse any <code>JSON</code> or <code>x-www-form-urlencoded</code> bodies included with requests, and it'll also record the <code>method</code> and <code>url</code>.</p><figcaption align="center">Lists of requests that have come in</figcaption><p><img alt="Listing" src="/assets/images/listing-98803e57fbd618c29d91830faa8732d1.png" width="2526" height="2004"></p><p>You can access the list view at <code>http://localhost:6789/_x</code> and it should show all recorded requests to date. <em>Note</em> that by default requests are stored in memory, so if you quit <code>wrestly</code> and start again it'll clear saved requests. You can override this by setting a designated <code>sqlite</code> file with the <code>-d</code> eg.</p><div class="codeBlockContainer_I0IT language-bash theme-code-block"><div class="codeBlockContent_wNvx bash"><pre tabindex="0" class="prism-code language-bash codeBlock_jd64 thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_mRuA"><span class="token-line" style="color:#F8F8F2"><span class="token plain">wrestly -d ./requests.sqlite</span><br></span></code></pre><button type="button" aria-label="Copy code to clipboard" class="copyButton_wuS7 clean-btn">Copy</button></div></div><figcaption align="center">View of a single request</figcaption><p><img alt="Request" src="/assets/images/request-fb57f87f566db8348100d5999c8e1ed3.png" width="2526" height="2004"></p><p>Combine this with something like <a href="https://ngrok.com" target="_blank" rel="noopener noreferrer"><code>ngrok</code></a> and you have a pretty whizzy environment for working on external webhooked services etc.</p>]]></content>
+        <author>
+            <name>Darren 🧙‍♂️</name>
+            <uri>https://github.com/royletron</uri>
+        </author>
+        <category label="libraries" term="libraries"/>
+        <category label="oss" term="oss"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[🧛‍♂️ Von Count]]></title>
         <id>count-voncount</id>

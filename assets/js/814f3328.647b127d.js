@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkVentureneering=self.webpackChunkVentureneering||[]).push([[535],{5641:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"\ud83e\udddb\u200d\u2642\ufe0f Von Count","permalink":"/blog/count-voncount"},{"title":"\ud83d\udc4b Hello World","permalink":"/blog/hello-world"}]}')}}]);
