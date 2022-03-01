@@ -5,9 +5,9 @@ $navbar: (
       height: var(--ifm-navbar-height),
       background-image:
         linear-gradient(
-          $base-white-color 0%,
-          $base-white-color 60%,
-          transparent 100%
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 1) 40%,
+          rgba(255, 255, 255, 0.9) 100%
         ),
       padding: 0,
     ),
