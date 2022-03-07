@@ -58,7 +58,7 @@ We can also use `never` to force a `switch` case to be exhaustive, by telling it
 Let's produce an example in literally the only context that has any meaning to me anymore: currency from A Song of Ice and Fire:
 
 
-```
+```ts title="Coin.ts"
 enum Coin {
     Halfpenny,
     Penny,
@@ -118,7 +118,7 @@ and call the `printValue()` function, I don't get any print out. I've got no def
 
 I could add a default case that handles any unaccounted-for values:
 
-```
+```ts
 function printValue(coin: Coin) {
   switch (coin) {
     case Coin.Halfpenny:
@@ -152,7 +152,7 @@ But my default needs to be generic no matter how many new coins I add. It can't 
 
 However, we can use the default case to **assign** the coin to `never`:
 
-```
+```ts
     default:
       const exhaust: never = coin;
       throw new Error(exhaust);
@@ -176,8 +176,3 @@ The Typescript compiler is now actively working for us to prevent any bugs that 
 now exhaustive, and no matter how many new items we add to our enum, we are forced by default to handle them, or we're not shipping.
 
 Take **THAT**, dynamic languages!
-
-
-
-
-
