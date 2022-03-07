@@ -1,9 +1,9 @@
 ---
 authors: sudo-jaa
 title: Static Exhaustive Switches in Typescript
-description: Don't be afraid of the typescript compiler - it only wants to be your friend.
+description: Don't be afraid of the Typescript compiler - it only wants to be your friend.
 slug: exhaustive-switch
-tags: [typescript]
+tags: [Typescript]
 ---
 
 **It's 2022, and we are in the golden age of web development**. But for all the advancements that tools like Typescript have made in making our lives easier,
@@ -19,8 +19,8 @@ What _is_ pattern matching? To quote the almighty **[book](https://doc.rust-lang
 
 >> Think of a match expression as being like a coin-sorting machine: coins slide down a track with variously sized holes along it, and each coin falls through the first hole it encounters that it fits into. In the same way, values go through each pattern in a match, and at the first pattern the value “fits,” the value falls into the associated code block to be used during execution.
 
-Now this sounds a lot like something that already exists in both typescript and javascript: the `switch` statement. And for the most part, a `switch` does act in much the same
-way as a fully-featured `match`, though with some drawbacks. The main one we're going to focus on here is that `switch` cases in typescript
+Now this sounds a lot like something that already exists in both Typescript and javascript: the `switch` statement. And for the most part, a `switch` does act in much the same
+way as a fully-featured `match`, though with some drawbacks. The main one we're going to focus on here is that `switch` cases in Typescript
 are **not exhaustive**. This means there is no guarantee that your `switch` is going to handle all possible values of your `switch` case.
 Incidentally, in a `match` in a strongly typed language like *Rust*, this exhaustiveness is **guaranteed** statically by the compiler. You must handle **all possible** cases
 before your code will even run.
@@ -42,11 +42,11 @@ should probably not rely on it to handle missing cases in types that have distin
 > you should use `default` in a switch because you literally don't have any other choice. Though this is a problem that favours eliminating [primitive obsession](https://refactoring.guru/smells/primitive-obsession)
 > in favour of using stronger types for your data (such as `enum` and `union`), we'll discuss that another time.
 
-So what can we do about this? How can we ask the typescript compiler to check this for us at compile-time?
+So what can we do about this? How can we ask the Typescript compiler to check this for us at compile-time?
 
 Enter **NEVER**!
 
-If you haven't come across if before, `never` is a powerful typescript type that tells the compiler that the value in question can never occur.
+If you haven't come across if before, `never` is a powerful Typescript type that tells the compiler that the value in question can never occur.
 Everything is assignable to `never`, but `never` is not assignable to anything. `any` isn't even assignable to `never`. It is the ultimate
 last word in telling the compiler that this value must never occur.
 
@@ -172,7 +172,7 @@ index.ts:36:13 - error TS2322: Type 'Coin' is not assignable to type 'never'.
 Found 1 error.
 ```
 
-The typescript compiler is now actively working for us to prevent any bugs that might arise from missing branches in this switch. It is
+The Typescript compiler is now actively working for us to prevent any bugs that might arise from missing branches in this switch. It is
 now exhaustive, and no matter how many new items we add to our enum, we are forced by default to handle them, or we're not shipping.
 
 Take **THAT**, dynamic languages!
