@@ -1,0 +1,183 @@
+---
+authors: sudo-jaa
+title: Static Exhaustive Switches in Typescript
+description: Don't be afraid of the Typescript compiler - it only wants to be your friend.
+slug: exhaustive-switch
+tags: [Typescript]
+---
+
+**It's 2022, and we are in the golden age of web development**. But for all the advancements that tools like Typescript have made in making our lives easier,
+there are still things that it is missing that are staple features in other languages. Thankfully with a little work we are able to emulate some of these features
+and make our lives easier, reduce the number of bugs we introduce, and make all our colleagues think we're awesome with our super esoteric programming skillz.
+
+<!--truncate-->
+
+One of the features I miss dearly from languages like *Rust* and *ReScript* is **pattern matching**. And before anybody comes at me: [yes, there is a proposal for
+pattern matching in Typescript](https://github.com/tc39/proposal-pattern-matching). And yes, this proposal should make us all very happy.
+
+What _is_ pattern matching? To quote the almighty **[book](https://doc.rust-lang.org/book/ch06-02-match.html)**:
+
+>> Think of a match expression as being like a coin-sorting machine: coins slide down a track with variously sized holes along it, and each coin falls through the first hole it encounters that it fits into. In the same way, values go through each pattern in a match, and at the first pattern the value “fits,” the value falls into the associated code block to be used during execution.
+
+Now this sounds a lot like something that already exists in both Typescript and javascript: the `switch` statement. And for the most part, a `switch` does act in much the same
+way as a fully-featured `match`, though with some drawbacks. The main one we're going to focus on here is that `switch` cases in Typescript
+are **not exhaustive**. This means there is no guarantee that your `switch` is going to handle all possible values of your `switch` case.
+Incidentally, in a `match` in a strongly typed language like *Rust*, this exhaustiveness is **guaranteed** statically by the compiler. You must handle **all possible** cases
+before your code will even run.
+
+This has some advantages. Primarily this aids development in larger teams where multiple engineers are working broadly in the same area.
+I could create a `match` that handles some variant of a union type or enum, and we would never have to worry about a co-worker
+adding a new value to the case and forgetting to handle it. Compiler says no. Your co-worker is forced to add the logic they missed. Bugs are avoided. Everyone is happy.
+
+You don't get this advantage with a `switch`.
+
+"But James, you stupid human", you say. "You realise you can use 'default' in a switch, right?".
+
+Absolutely there is an option to use default, but also if you use it as a catch-all for things that you're willing to forget, then
+you probably deserve the bugs that are about to come swarming your way.
+The issue is that `default` really does just mean *default behaviour* that is non-specific to the value being passed to your switch. You
+should probably not rely on it to handle missing cases in types that have distinctly known possible values at the point of compilation.
+
+> NOTE: This does not apply to things like `string` and `number` where you really can have a functionally infinite set of values. Cases like this
+> you should use `default` in a switch because you literally don't have any other choice. Though this is a problem that favours eliminating [primitive obsession](https://refactoring.guru/smells/primitive-obsession)
+> in favour of using stronger types for your data (such as `enum` and `union`), we'll discuss that another time.
+
+So what can we do about this? How can we ask the Typescript compiler to check this for us at compile-time?
+
+Enter **NEVER**!
+
+If you haven't come across if before, `never` is a powerful Typescript type that tells the compiler that the value in question can never occur.
+Everything is assignable to `never`, but `never` is not assignable to anything. `any` isn't even assignable to `never`. It is the ultimate
+last word in telling the compiler that this value must never occur.
+
+Things like functions that solely throw errors are inferred to return `never`, and that's how functions that throw can influence
+the control flow of a function.
+
+We can also use `never` to force a `switch` case to be exhaustive, by telling it that the `default` case is `never`.
+
+Let's produce an example in literally the only context that has any meaning to me anymore: currency from A Song of Ice and Fire:
+
+
+```
+enum Coin {
+    Halfpenny,
+    Penny,
+    Halfgroat,
+    Groat,
+    Star,
+    Stag,
+    Moon,
+}
+
+function printValue(coin: Coin) {
+  switch (coin) {
+    case Coin.Halfpenny:
+      console.log("I am worth 23520 Golden Dragons")
+      break;
+    case Coin.Penny:
+        console.log("I am worth 11760 Golden Dragons")
+      break;
+    case Coin.Halfgroat:
+        console.log("I am worth 5880 Golden Dragons")
+      break;
+    case Coin.Groat:
+        console.log("I am worth 2940 Golden Dragons")
+      break;
+    case Coin.Star:
+        console.log("I am worth 1470 Golden Dragons")
+      break;
+    case Coin.Stag:
+        console.log("I am worth 210 Golden Dragons")
+      break;
+    case Coin.Moon:
+      console.log("I am worth 30 Golden Dragons")
+      break;
+  }
+}
+```
+
+I can stick any of these coins in that I like, and i'll get my value in Dragons.
+
+But wait! I've forgotten a value in my enum. I've forgotten to put in Dragons.
+If I go and do that now:
+
+```
+enum Coin {
+    Halfpenny,
+    Penny,
+    Halfgroat,
+    Groat,
+    Star,
+    Stag,
+    Moon,
+    Dragon
+}
+```
+
+and call the `printValue()` function, I don't get any print out. I've got no default.
+
+I could add a default case that handles any unaccounted-for values:
+
+```
+function printValue(coin: Coin) {
+  switch (coin) {
+    case Coin.Halfpenny:
+      console.log("23520 of me is worth 1 Golden Dragon")
+      break;
+    case Coin.Penny:
+        console.log("11760 of me is worth 1 Golden Dragon")
+      break;
+    case Coin.Halfgroat:
+        console.log("5880 of me is worth 1 Golden Dragon")
+      break;
+    case Coin.Groat:
+        console.log("2940 of me is worth 1 Golden Dragon")
+      break;
+    case Coin.Star:
+        console.log("1470 of me is worth 1 Golden Dragon")
+      break;
+    case Coin.Stag:
+        console.log("210 of me is worth 1 Golden Dragon")
+      break;
+    case Coin.Moon:
+      console.log("30 of me is worth 1 Golden Dragon")
+      break;
+    default:
+      console.log("I don't recognise this currency?")
+  }
+}
+```
+
+But my default needs to be generic no matter how many new coins I add. It can't ever be a handler for custom logic for new items I add to the enum.
+
+However, we can use the default case to **assign** the coin to `never`:
+
+```
+    default:
+      const exhaust: never = coin;
+      throw new Error(exhaust);
+  }
+```
+
+And now the moment we try to compile our code with an enum case unaccounted for, we get the following:
+
+
+```
+index.ts:36:13 - error TS2322: Type 'Coin' is not assignable to type 'never'.
+
+36       const exhaust: never = coin;
+~~~~~~~
+
+
+Found 1 error.
+```
+
+The Typescript compiler is now actively working for us to prevent any bugs that might arise from missing branches in this switch. It is
+now exhaustive, and no matter how many new items we add to our enum, we are forced by default to handle them, or we're not shipping.
+
+Take **THAT**, dynamic languages!
+
+
+
+
+
