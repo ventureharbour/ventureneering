@@ -22,7 +22,8 @@
     "dev": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy"
+    "deploy": "docusaurus deploy",
+    "generate-post": "node generatePost.js"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.15",
