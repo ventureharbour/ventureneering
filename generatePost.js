@@ -35,8 +35,6 @@ rl.question("Post title > ", function (title) {
         const day = String(today.getDate()).padStart(2, "0");
         const fileName = `${year}-${month}-${day}-${slug}.mdx`;
 
-        console.log("template", template)
-
         fs.writeFileSync(`blog/${fileName}`, Buffer.from(template, "utf-8"))
         rl.close();
       });
