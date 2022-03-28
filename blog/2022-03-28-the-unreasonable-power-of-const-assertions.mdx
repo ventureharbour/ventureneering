@@ -1,4 +1,3 @@
-
 ---
 authors: sudo-jaa
 title: 👾Taming Type Inferenece
@@ -153,7 +152,7 @@ error TS2556: A spread argument must either have a tuple type or be passed to a 
 
 This is invalid because, as discussed before, Typescript will always infer the most general type that is assignable to your data. `number[]` is more general than `[number, number]`, and so the former is used, even if the latter is technically correct. 
 
-You can solve this one of two ways: you can either type the value of `arr` explicitly, or you can use a feature introduced in Typescript `3.4`: [const assertions](!https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions).
+You can solve this one of two ways: you can either type the value of `arr` explicitly, or you can use a feature introduced in Typescript `3.4`: [const assertions](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions).
 
 **What the heck is a const assertion?**
 
