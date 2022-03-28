@@ -5,6 +5,7 @@ description: Looking to find user profile strings from social media urls? Look n
 slug: top-5-social-media-regex-for-web-developers-2022
 date: 2022-03-28T10:00
 tags: [regex]
+
 ---
 
 The year is 2022, you sit perched at your desk, your central nervous system is a delicate balance of coffee, vegan tortilla chips and whatever your local mini market promotes as 'pastries'...
@@ -34,7 +35,8 @@ Languished you trawl the web in search of your liberator. "This is it..." you an
 
 **Twitter**
 ```
-(?:https?:)?\/\/(?:www\.)?(?:facebook|fb)\.com\/(?P<profile>(?![A-z]+\.php)(?!marketplace|gaming|watch|me|messages|help|search|groups)[A-z0-9_\-\.]+)\/?
+(?:https?:)?\/\/(?:[A-z]+\.)?twitter\.com\/@?(?!home|share|privacy|tos)(?P<username>[A-z0-9_]+)\/?
+
 ```
 **Github**
 ```
