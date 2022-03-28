@@ -1,0 +1,64 @@
+---
+authors: paulkennethkent
+title: 🐛 GraphQL Object Caching Bug
+description: The reason why your apollo graph may be broken
+slug: caching-bug
+tags: [graphql, apollo]
+---
+
+**TLDR - make sure the nested objects in the request have unique ids**
+
+<!--truncate-->
+
+I am a huge fan of GraphQL and all of its typed goodness. On our most recent project we have been using Apollo Client to manage the graph layer, which for the most part has been good but one thing that has caused us headaches is the cache.
+
+In this simple example to recreate the issue we are requesting all teams and their respective players. Knowing that some teams could have players with the same name.
+
+```ts
+    teams {
+      id
+      name
+      players{
+        id
+        name
+        poistion
+      }
+    }
+
+```
+
+Let's say the ids are a simple dot notation of the full team name and the player's full name. I am making a request for all players that match “robinson”.
+
+In the grahpql playground I would see the following:
+
+```
+[
+    {
+        "id": "blackburn.rovers",
+        "name": "blackburn.rovers",
+        "players": {
+            "id": "paul.robsinson",
+            "name": "paul.robinson",
+            "position": "goalkeeper"
+        }
+    },
+    {
+        "id": "birmingham",
+        "name": "birmingham",
+        "players": {
+            "id": "paul.robsinson",
+            "name": "paul.robinson",
+            "position": "defender"
+        }
+    }
+]
+
+```
+
+Nice! That is exactly what I want. In the browser I would see Paul Robinson the Goalkeeper playing for Birmingham. What! Ludicrous.
+
+After banging my head against the wall for an hour it turns out that it was caching the nested player object based on the ID. Here are a few solutions:
+
+1. Unique IDs (of course)
+2. Ask yourself do you really need that id? Removing the ID from the gql Player object.
+3. Alias a different field to be the ID.
