@@ -1,0 +1,54 @@
+.support-warning {
+	background: #fcf8e3;
+	padding: 3em;
+	border: 1em double red;
+}
+
+
+@supports (container-type: inline-size) {
+	.support-warning {
+		display: none;
+	}
+}
+
+
+.block-wrapper {
+	container-type: inline-size;
+	container-name: blockwrapper;
+	/* container: inline-size / blockwrapper; */
+}
+
+.block {
+	background: green;
+}
+
+@container blockwrapper (inline-size <= 200px) {
+	.block {
+		padding: 0 1em;
+	}
+
+	.block__title {
+		font-size: 1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.block__content {
+		font-size: 0.9rem;
+		line-height: 1.2;
+	}
+}
+
+@container blockwrapper (inline-size > 480px) {
+	.block {
+		padding: 2em;
+		background: red;
+	}
+}
+
+/* Doesn't work unless you use container-type: size on .block-wrapper */
+@container blockwrapper (block-size > 100px) {
+	.block {
+		color: orange;
+	}
+}
+
