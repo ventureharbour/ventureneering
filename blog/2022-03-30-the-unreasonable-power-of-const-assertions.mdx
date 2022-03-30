@@ -31,7 +31,7 @@ But what about if i'm defining new variables from scracth that don't depend on a
 
 Let's look at some examples. Starting with the humble `Array`. 
 
-```
+```ts
 const arr = [];
 
 arr.push(1);
@@ -45,7 +45,7 @@ There are two remedies for this frighteningly dynamic behaviour: explicitly writ
 
 If we now write our program as follows: 
 
-```
+```ts
 const arr: string[] = [];
 
 arr.push(1);
@@ -54,7 +54,7 @@ arr.push("hello");
 
 We get the following error:
 
-```
+```ts
 error TS2345: Argument of type 'number' is not assignable to parameter of type 'string'.
 
 3 arr.push(1);
@@ -65,7 +65,7 @@ We cannot push a number to an array of strings. At the point of declaration, `ar
 
 We can achieve the same effect by allowing typescript to infer this type from the initial declaration, like so:
 
-```
+```ts
 const arr = [1];
 
 arr.push(1);
@@ -74,7 +74,7 @@ arr.push("hello");
 
 The compiler now fails for a similar reason:
 
-```
+```ts
 error TS2345: Argument of type 'string' is not assignable to parameter of type 'number'.
 
 4 arr.push("hello");
@@ -85,7 +85,7 @@ Our `arr` variable is declared with the type `number[]` based on the initial dat
 Type inference is great if you're careful. Generally speaking though it is always a safer bet to explicitly type your data if there is any doubt about the integraity of the data going into the declaration. An inferred type cannot protect you against mistakes
 because the compiler does not know your intention. Take the following example:
 
-```
+```ts
 const a = 1;
 const b = "2";
 const c = 3;
@@ -97,7 +97,7 @@ This code compiles just fine! And although you think your array can only contain
 unrecoverable heartache in the near future, as you weigh the heft of this silly mistake some point down the line.
 If you had explicitly typed your array to begin with, then this issue is completely nullified for the rest of time:
 
-```
+```ts
 const a = 1;
 const b = "2";
 const c = 3;
@@ -105,7 +105,7 @@ const c = 3;
 const arrayOfNumbers: number[] = [a, b, c];
 ```
 
-```
+```ts
 error TS2322: Type 'string' is not assignable to type 'number'.
 
 5 const arrayOfNumbers: number[] = [a, b, c];
@@ -119,7 +119,7 @@ So now we know how type inference behaves. Let's look at a hidden pitfall.
 
 Take a look at this array declaration:
 
-```
+```ts
 const arr = [1, 2];
 ```
 
@@ -132,7 +132,7 @@ This holds a few implications. Importantly, we cannot spread our `arr` variable 
 
 The following is not a valid program:
 
-```
+```ts
 const arr = [1, 2];
 
 const sum = (valueA: number, valueB: number) => {
@@ -144,7 +144,7 @@ console.log(sum(...arr))
 
 Despite the fact that our `arr` variable is an array of two numbers, Typescript cannot guarantee this so it is rejected by the compiler:
 
-```
+```ts
 error TS2556: A spread argument must either have a tuple type or be passed to a rest parameter.
 
 7 console.log(sum(...arr))
@@ -161,7 +161,7 @@ Simply put - a const assertion tells the compiler that this data should be infer
 
 It looks like this:
 
-```
+```ts
 const arr = [1, 2] as const;
 
 const sum = (valueA: number, valueB: number) => {
@@ -173,7 +173,7 @@ console.log(sum(...arr))
 
 This program is now valid. What is essentially happening is we have told Typescript to not bother with finding a general type for `arr`. We don't _want_ general. We want _exact_. We want a *narrow type*. It's essentially equivalent to writing:
 
-```
+```ts
 const arr: readonly [number, number] = [1, 2];
 
 const sum = (valueA: number, valueB: number) => {
@@ -192,7 +192,7 @@ the type for items contained in your `as const` array.
 
 This can be extremely powerful when working with a utility such as *lodash* on a task such as stripping data from an object returned from an typed API call, where you know the kinds of keys on the returned object and you need to get the compiler to understand them too:
 
-```
+```ts
 const { pick } = require("lodash");
 
 const myObject = {
