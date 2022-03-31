@@ -7,6 +7,8 @@ date: 2022-03-29
 tags: [css, css-new-2022]
 ---
 
+import CodesandboxEmbed from '../../src/components/Embeds/Codesandbox';
+
 CSS is getting even more powerful in 2022. Here are three new pseudo selectors that'll help you. :is(), :where(), and :has(). Without further ado, I'll explain what they are and how you can use them.
 
 <!--truncate-->
@@ -140,14 +142,21 @@ We can get even more complex. You can style the parent based on the number of li
 
 ![](has-complex.png)
 
+<CodesandboxEmbed id="css-has-70i051" height="400px" />
+
 ### Demos
 
 - https://codesandbox.io/s/crazy-pike-70i051?file=/src/styles.scss
 - https://codepen.io/bigandy/pen/VwyzaXQ?editors=0100
 - https://codepen.io/bigandy/pen/MWrvjQZ
 
+
+### Test for support
+- to test for :has() support in CSS you can use `@supports(selector(:has(p))) { /* Supported! */ }`
+- to test for :has support in JS you can use `if (CSS.supports("selector(:has(p))")) { console.log('css :has() is supported'); }`
 ### Further information
 
+- specificity is the same as for :is() where the most speficic argument within the the :has() group is taken. For example .block :has(p, #nav, .inline-list) the specificity would be calulated as being the same as .block #nav for all of the matching items in the :has() selector.
 - Browser support: [Safari 15.4+](https://developer.apple.com/documentation/safari-release-notes/safari-15_4-release-notes), Chrome 101+ with the Experimental Web Platform features flag enabled (type chrome://flags/#enable-container-queries into the url bar in Chrome 101+ and enable it if is not already enabled)
 - Support Link: https://caniuse.com/css-has
 - Spec Link: https://www.w3.org/TR/selectors-4/#relational
