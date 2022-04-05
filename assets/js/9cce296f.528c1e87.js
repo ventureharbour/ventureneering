@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkVentureneering=self.webpackChunkVentureneering||[]).push([[175],{769:function(e){e.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/graphql","name":"graphql","count":1,"permalink":"/blog/tags/graphql"}')}}]);
