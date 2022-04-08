@@ -7,7 +7,7 @@ div[class^="authorCol_"] {
 }
 
 #__docusaurus {
-  .blog-wrapper {
+  .main-wrapper {
     .container {
       padding: 0 !important;
       margin: 0;
@@ -36,7 +36,6 @@ div[class^="authorCol_"] {
           }
         }
         .col {
-          max-width: 100% !important;
           padding: 0;
 
           @include media(tablet down) {
@@ -48,6 +47,27 @@ div[class^="authorCol_"] {
             padding-left: 0;
             @include flex-grid-width(2);
           }
+        }
+      }
+    }
+  }
+
+  .blog-post-page & {
+    .main-wrapper .container .row  {
+      @include media(desktop up) {
+        .col--3 {
+          flex: 0 0 calc(2 / 12 * 100%);
+          max-width: calc(2 / 12 * 100%);
+        }
+
+        .col--7 {
+          flex: 0 0 calc(6 / 12 * 100%);
+          max-width: calc(6 / 12 * 100%);
+        }
+
+        .col--2 {
+          flex: 0 0 calc(2 / 12 * 100%);
+          max-width: calc(2 / 12 * 100%);
         }
       }
     }

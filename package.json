@@ -19,15 +19,15 @@
     "url": "https://github.com/ventureharbour/ventureneering/issues"
   },
   "scripts": {
-    "dev": "docusaurus start",
+    "dev": "docusaurus start --port 3333",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "generate-post": "node generatePost.js"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.15",
-    "@docusaurus/preset-classic": "2.0.0-beta.15",
+    "@docusaurus/core": "2.0.0-beta.18",
+    "@docusaurus/preset-classic": "2.0.0-beta.18",
     "@eightshift/frontend-libs": "^3.2.2",
     "@mdx-js/react": "^1.6.21",
     "clsx": "^1.1.1",

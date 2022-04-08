@@ -72,7 +72,6 @@ $layout: (
       .col {
         @include flex-grid-width(10);
 
-        max-width: 100% !important;
         padding: 0;
 
         @include media(desktop up) {
@@ -95,4 +94,8 @@ $layout: (
       top: var(--ifm-navbar-height);
     }
   }
+}
+
+.blog-wrapper .blogPostTitle_node_modules-\@docusaurus-theme-classic-lib-next-theme-BlogPostItem-styles-module {
+  font-size: 2em;
 }
