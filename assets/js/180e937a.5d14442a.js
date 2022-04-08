@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkVentureneering=self.webpackChunkVentureneering||[]).push([[6550],{8935:function(e){e.exports=JSON.parse('{"permalink":"/blog/tags/type-inference","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

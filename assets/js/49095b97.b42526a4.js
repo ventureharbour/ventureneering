@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkVentureneering=self.webpackChunkVentureneering||[]).push([[7157],{9216:function(e){e.exports=JSON.parse('{"permalink":"/blog/tags/libraries","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

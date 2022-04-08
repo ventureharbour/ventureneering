@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkVentureneering=self.webpackChunkVentureneering||[]).push([[5423],{3894:function(e){e.exports=JSON.parse('{"permalink":"/blog/tags/programming","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
