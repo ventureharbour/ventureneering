@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkVentureneering=self.webpackChunkVentureneering||[]).push([[8790],{2901:function(e){e.exports=JSON.parse('{"allTagsPath":"/blog/tags","name":"process","count":1,"permalink":"/blog/tags/process"}')}}]);
