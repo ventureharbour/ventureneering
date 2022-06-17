@@ -6,15 +6,24 @@ div[class^="authorCol_"] {
   background: red;
 }
 
+
+
 #__docusaurus {
   .main-wrapper {
+
+    .markdown {
+      margin-bottom: 30px;
+
+
+      :where(p, li) {
+         max-width: 700px;
+       }
+    }
+
     .container {
       padding: 0 !important;
       margin: 0;
       max-width: initial;
-      .markdown {
-        margin-bottom: 30px;
-      }
 
       footer.row {
         .col {

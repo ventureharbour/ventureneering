@@ -40,3 +40,15 @@ body {
     display: none;
   }
 }
+
+.grid {
+  display: grid;
+  gap: 1em;
+
+
+  &--half {
+    @media (min-width: 700px) {
+      grid-template-columns: repeat(2, 50%);
+    }
+  }
+}
