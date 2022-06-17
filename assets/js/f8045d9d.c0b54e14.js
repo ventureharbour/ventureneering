@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkVentureneering=self.webpackChunkVentureneering||[]).push([[7447],{2118:function(e){e.exports=JSON.parse('{"allTagsPath":"/blog/tags","name":"css-new-2022","count":1,"permalink":"/blog/tags/css-new-2022"}')}}]);
