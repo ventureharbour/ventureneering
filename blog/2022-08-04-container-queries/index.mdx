@@ -1,0 +1,171 @@
+---
+
+authors: bigandy
+title: 📦 Container Queries
+description: Containers allow you to style a component based on its containers dimensions. Here's how.
+slug: container-queries
+date: 2022-08-04
+tags: [css, new-css-2022, container-queries]
+draft: true
+---import Block from "./Block";
+import "./style.css";
+
+At first there was tablet and chalk and that is what humans had
+to communicate their message to other humans. Now we have CSS Container Queries.
+In this post I shall explain what they are and how you can use them.
+
+<!--truncate-->
+
+When I first started out in CSS there was less requirement for flexibility of web design. There were no mobile phones and the standard screen size was wide enough so that a 960px column layout was king. Then came the iPhone and along with that came the necessity for a responsive design and media queries. The design of your site could change depending on the width of the device you were using to view that site. Sprinkle a few media queries for regular break points and viola your site worked across device and browsers.
+
+## Introducing: Container Queries
+
+Media Queries only take you so far. You have access to the width of the browser or the device, but you do not have access to the width (or other metrics such as font-size) of the container that holds the component.
+
+An example is a calendar widget. This calendar widget doesn't know anything about how wide it is (or how large the font-size is). In an ideal world you would want to make the component work in a variety of different situations. If there was a lot of space then the days would not be truncated and also the months
+
+## What is a container query?
+
+Say you have a block component that has a title, an image, plus some text and a link. This same component can be placed anywhere you want on your site for example a narrow
+sidebar or a wide content area. Wouldn't it be amazing to be able to style that same component in a totally different manner depending on its situation? Not using the viewport width but using the container width. The width (or, in future, font-size or other such measures) of the container that component is currently in.
+
+```jsx
+export default function App() {
+  return (
+    <div>
+      <main>
+        <h1>
+          Homepage
+        </h1>
+
+        <Block title="Blog Title">
+          <p>
+            This is the introduction to the blog post that will
+            draw your eyes and make you want to click on the
+            link below
+          </p>
+        </Block>
+      </main>
+
+      <aside>
+        <h2>Sidebar</h2>
+        <Block title="Blog Title">
+          <p>
+            This is the introduction to the blog post that will
+            draw your eyes and make you want to click on the
+            link below
+          </p>
+        </Block>
+      </aside>
+
+      <footer>
+        <p>&copy; 2023 MyApp.com</p>
+        <Block title="Blog Title">
+          <p>
+            This is the introduction to the blog post that will
+            draw your eyes and make you want to click on the
+            link below
+          </p>
+        </Block>
+      </footer>
+    </div>
+  )
+};
+
+const Block = ({ title, children}) => {
+  return (
+    <div className="block-container">
+      <article className="block">
+        <header>
+          <img
+            src="https://www.placecage.com/c/460/300"
+            alt="Nick cage. Need there be anything else?"
+          />
+          <h2>{title}</h2>
+        </header>
+        <section>
+          {children}
+          <a href="#">Read more about "{title}"</a>
+        </section>
+      </article>
+    </div>
+  )
+}
+```
+
+
+```html
+// The final HTML of the block component
+<div class="block-container">
+  <article class="block">
+    <header>
+      <img
+        src="https://www.placecage.com/c/460/300"
+        alt="Nick cage. Need there be anything else?"
+      />
+      <h2>Blog Title</h2>
+    </header>
+    <section>
+      <p>
+        This is the introduction to the blog post that will
+        draw your eyes and make you want to click on the
+        link below
+      </p>
+      <a href="#">Read more about "Blog Title"</a>
+    </section>
+  </article>
+</div>
+```
+
+Say for example we have a simple block component with a
+title and some content inside
+
+<Block />
+<Block />
+<Block />
+<Block />
+<div class="support-warning">
+  Your browser doesn't currently support CSS container
+  queries. Current browser support is limited to Safari Tech
+  Preview 142+, and Chrome/Edge with the chrome://flags/#enable-experimental-web-platform-features flag enabled
+</div>
+
+```css
+
+.block-container {
+  container-name: blockContainer; // useful if there are multiple containers
+  container-type: inline-size;
+}
+
+.block {
+  background-color: red;
+  color: white;
+}
+
+@container blockContainer (inline-size >= 600px) {
+  .block {
+    background-color: green;
+  }
+}
+
+
+```
+
+
+## Container Query Units
+
+New container query units. Whereas before we had viewport units (vh, vw, vmin, vmax) now with the introduction of container queries we have new container query units.
+
+| container unit  | relative to                               |
+| --------------  | ----------------------------------------- |
+| cqw             | 1% of a query containers width            |
+| cqh             | 1% of a query containers height           |
+| cqi             | 1% of a query containers inline dimension |
+| cqb             | 1% of a query containers block dimension  |
+| cqmin           | 1% of the smaller value of qi and qb      |
+| cqmax           | 1% of the larger value of qi and qb       |
+
+### Links
+
+- https://drafts.csswg.org/css-contain-3/#container-lengths
+- https://css-tricks.com/container-units-should-be-pretty-handy/

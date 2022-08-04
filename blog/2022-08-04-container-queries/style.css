@@ -2,6 +2,7 @@
 	background: #fcf8e3;
 	padding: 3em;
 	border: 1em double red;
+	margin-bottom: 1.5em;
 }
 
 
@@ -9,20 +10,25 @@
 	.support-warning {
 		display: none;
 	}
+
+	.block-container {
+		display: block;
+	}
 }
 
 
-.block-wrapper {
+.block-container {
+	display: none;
 	container-type: inline-size;
-	container-name: blockwrapper;
-	/* container: inline-size / blockwrapper; */
+	container-name: blockContainer;
+	/* container: inline-size / blockContainer; */
 }
 
 .block {
 	background: green;
 }
 
-@container blockwrapper (inline-size <= 200px) {
+@container blockContainer (inline-size <= 200px) {
 	.block {
 		padding: 0 1em;
 	}
@@ -38,7 +44,7 @@
 	}
 }
 
-@container blockwrapper (inline-size > 480px) {
+@container blockContainer (inline-size > 480px) {
 	.block {
 		padding: 2em;
 		background: red;
@@ -46,7 +52,7 @@
 }
 
 /* Doesn't work unless you use container-type: size on .block-wrapper */
-@container blockwrapper (block-size > 100px) {
+@container blockContainer (block-size > 100px) {
 	.block {
 		color: orange;
 	}

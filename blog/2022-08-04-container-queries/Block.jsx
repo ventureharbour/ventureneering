@@ -2,7 +2,7 @@ import React from "react";
 
 const Block = () => {
   return (
-    <div class="block-wrapper">
+    <div class="block-container">
       <article class="block">
         <header>
           <img
